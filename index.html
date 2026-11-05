@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>For Tew ❤</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Mali:wght@300;400&display=swap">
+<style>
+:root{--bg:#050505;--rose:#e11d48;--tx:#f7e8ec;box-sizing:border-box}
+*{box-sizing:inherit;margin:0}
+body{background:var(--bg);color:var(--tx);font:300 16px/1.7 'Mali','Sarabun',system-ui,sans-serif;overflow-x:hidden}
+body.lock{overflow:hidden}
+.sc{font-family:'Dancing Script','Brush Script MT',cursive}
+#bg{position:fixed;inset:0;z-index:0;width:100%;height:100%}
+#rc{position:fixed;z-index:1;top:0;left:50%;transform:translateX(-50%);height:100svh;aspect-ratio:7/12;max-width:100vw;filter:drop-shadow(0 0 10px rgba(225,29,72,.55)) drop-shadow(0 0 28px rgba(16,185,129,.2))}
+#loader,#gate{position:fixed;inset:0;z-index:60;background:#050505;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1rem;padding:1.5rem;transition:opacity 1.2s}
+#loader{z-index:70}.gone{opacity:0;pointer-events:none}
+.pulse{font-size:2.4rem;animation:pl 1s infinite alternate;filter:drop-shadow(0 0 12px var(--rose))}
+@keyframes pl{to{transform:scale(1.25)}}
+.fi{opacity:0;animation:fi 1.8s forwards}@keyframes fi{to{opacity:1}}
+h1{font-weight:400;font-size:clamp(2.4rem,9vw,4.5rem);text-shadow:0 0 24px rgba(225,29,72,.7)}
+.b{font:inherit;color:var(--tx);cursor:pointer;border:1px solid var(--rose);background:rgba(225,29,72,.14);padding:.8rem 1.6rem;border-radius:999px;box-shadow:0 0 22px rgba(225,29,72,.35);transition:.3s}
+.b:hover{transform:scale(1.06)}
+#sc{display:none;height:420vh}
+/* envelope */
+#env{position:fixed;z-index:5;left:50%;bottom:max(14px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(400px,86vw);aspect-ratio:10/7;opacity:0;transition:opacity 2s;pointer-events:none}
+#env.show{opacity:1}#env.show:not(.open){pointer-events:auto;cursor:pointer}
+#env>*{position:absolute}
+.back{inset:0;background:#6b0e1f;border-radius:6px;box-shadow:0 0 40px rgba(225,29,72,.45)}
+.front{inset:0;background:#9b1530;border-radius:6px;z-index:3;clip-path:polygon(0 0,50% 50%,100% 0,100% 100%,0 100%)}
+.flap{inset:0;background:#b81d38;z-index:4;clip-path:polygon(0 0,100% 0,50% 58%);transform-origin:top;transition:transform .9s,z-index 0s .45s}
+#env.open .flap{transform:rotateX(180deg);z-index:1}
+.seal{left:50%;top:54%;z-index:5;transform:translate(-50%,-50%);font-size:1.6rem;transition:opacity .5s;filter:drop-shadow(0 0 8px #000)}
+#env.open .seal{opacity:0}
+#pw{left:6%;width:88%;bottom:45%;z-index:2;overflow:hidden;height:0;border-radius:4px 4px 0 0;background:rgba(14,4,8,.78);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid rgba(255,140,165,.25);border-bottom:0;box-shadow:0 0 36px rgba(225,29,72,.3)}
+#tx{white-space:pre-wrap;padding:20px 20px 60px;line-height:1.75;background:repeating-linear-gradient(transparent 0,transparent calc(1.75em - 1px),rgba(255,160,180,.09) calc(1.75em - 1px),rgba(255,160,180,.09) 1.75em);background-origin:content-box}
+#h{color:transparent}
+.hint{position:fixed;left:0;right:0;z-index:6;text-align:center;opacity:0;transition:opacity 1s;pointer-events:none;color:#ff9db1;text-shadow:0 0 12px #000}
+#h1{bottom:calc(min(400px,86vw)*.7 + 34px + env(safe-area-inset-bottom,0px))}.hint.on{opacity:1}
+.ph{position:fixed;z-index:4;width:clamp(96px,21vw,190px);pointer-events:none;opacity:0;transform:translateY(50px) scale(.82) rotate(calc(var(--r)*2));transition:opacity 1.2s,transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.ph.in{opacity:1;transform:rotate(var(--r))}
+.fm{position:relative;background:#f6efe8;padding:6px 6px 22px;border-radius:3px;box-shadow:0 8px 26px rgba(0,0,0,.7),0 0 22px rgba(225,29,72,.25);animation:fl 6s ease-in-out infinite alternate;animation-delay:var(--d)}
+.fm img,.fm .e{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.fm .e{background:linear-gradient(135deg,#5c0f1f,#0d4f3a);display:grid;place-items:center;color:#ffd6df;font-size:1.4rem}
+.fm small{position:absolute;left:0;right:0;bottom:3px;text-align:center;font-size:.62rem;line-height:1.5;color:#3a1018}
+@keyframes fl{to{transform:translateY(-10px) rotate(1.5deg)}}
+.hf{position:fixed;z-index:50;pointer-events:none;animation:up 2.2s ease-out forwards}
+@keyframes up{to{transform:translate(var(--dx),-60vh) scale(1.5);opacity:0}}
+#pl{position:fixed;left:10px;top:max(10px,env(safe-area-inset-top,0px));z-index:50;display:none;align-items:center;gap:.5rem;font-size:.75rem;padding:.35rem .7rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px}
+#pl.on{display:flex}#pl button{background:none;border:0;color:var(--tx);cursor:pointer;font-size:1rem}#pl input{width:60px;accent-color:var(--rose)}
+.wv{display:flex;gap:2px;align-items:flex-end;height:14px}.wv i{width:3px;background:var(--rose);height:4px}
+.play .wv i{animation:wv .8s infinite alternate}.wv i:nth-child(2){animation-delay:.2s!important}.wv i:nth-child(3){animation-delay:.4s!important}.wv i:nth-child(4){animation-delay:.1s!important}
+@keyframes wv{to{height:14px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style></head><body class="lock">
+<canvas id="bg"></canvas><canvas id="rc"></canvas>
+<div id="loader"><div class="pulse">❤</div></div>
+<div id="gate">
+<h1 class="sc fi" style="animation-delay:.6s">Hey, My Love...</h1>
+<p class="fi" style="animation-delay:2.2s">Someone made something special for you.</p>
+<button class="b fi" id="open" style="animation-delay:3.8s">❤ Open Your Surprise ❤️</button></div>
+<div id="sc"></div>
+<p class="hint sc" id="h1" style="font-size:1.5rem">แตะซองจดหมาย</p>
+<div id="env"><div class="back"></div><div id="pw"><div id="tx"><span id="v"></span><span id="h"></span></div></div><div class="front"></div><div class="flap"></div><div class="seal">❤️</div></div>
+<div id="pl"><button id="pp2" aria-label="play">▶</button><span class="wv"><i></i><i></i><i></i><i></i></span><span id="tt"></span><input id="vol" type="range" min="0" max="1" step=".05" value=".6" aria-label="volume"></div>
+<script>
+/* ===== แก้ไขข้อความ / เพลง ที่นี่ ===== */
+const CONFIG={
+ name:"Tew",
+ music:{src:"",title:"Our Song"}, // ใส่ path MP3 เช่น "song.mp3" (ถ้าว่างจะใช้เปียโนสังเคราะห์)
+ photos:[ // src: path/ลิงก์รูป (ว่างไว้จะเป็นกรอบ Placeholder) · caption ไม่ใส่ก็ได้ · รูปจะโผล่ตามลำดับตอนเลื่อน
+  {src:"",caption:"The day we met"},{src:"",caption:"Our first date"},{src:"",caption:"Just us"},
+  {src:"",caption:"Laughing together"},{src:"",caption:"A favorite day"},{src:"",caption:"6 months"}],
+ letter:`ถึง Tew,
+
+ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในชีวิตของเค้านะ
+
+6 เดือนที่ผ่านมาอาจไม่ได้มีแต่วันที่สมบูรณ์แบบ แต่ทุกช่วงเวลาที่มีเธออยู่ด้วย มันมีความหมายกับเค้ามากจริง ๆ
+
+ขอบคุณที่อยู่ข้างกัน ขอบคุณสำหรับรอยยิ้ม เสียงหัวเราะ และทุกความทรงจำที่เราสร้างด้วยกัน
+
+เค้าไม่รู้ว่าอนาคตจะเป็นยังไง แต่เค้าอยากให้มีเธออยู่ในเรื่องราวต่อ ๆ ไปของเค้า
+
+Every rose reminds me of you.
+You’re my favorite person, Tew.
+
+Happy 6 Months Anniversary.
+
+รักเธอนะ ❤️`
+};
+/* ================================= */
+const $=s=>document.querySelector(s),RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* stars */
+const bg=$('#bg'),bx=bg.getContext('2d');let stars=[];
+function fitBg(){bg.width=innerWidth;bg.height=innerHeight;stars=Array.from({length:RM?60:120},()=>({x:Math.random()*bg.width,y:Math.random()*bg.height,r:Math.random()*1.2+.3,p:Math.random()*6}))}
+function drawStars(t){bx.clearRect(0,0,bg.width,bg.height);for(const s of stars){bx.globalAlpha=.3+.5*Math.abs(Math.sin(t/1200+s.p));bx.fillStyle=s.p>5?'#ffd6df':'#fff';bx.fillRect(s.x,s.y,s.r,s.r)}if(!RM)requestAnimationFrame(drawStars)}
+fitBg();drawStars(0);
+/* hearts */
+function hearts(x,y,n=8){for(let i=0;i<n;i++){const e=document.createElement('span');e.className='hf';e.textContent=['❤','💗','🤍','💋'][i%4];e.style.cssText=`left:${x+Math.random()*40-20}px;top:${y}px;--dx:${Math.random()*160-80}px;animation-delay:${i*.08}s;font-size:${18+Math.random()*16}px`;document.body.appendChild(e);setTimeout(()=>e.remove(),2800)}}
+/* ASCII rose */
+const T=["#####","..#..","..#..","..#..","..#.."],E=[".###.","#...#","#####","#....",".####"],W=["#...#","#...#","#.#.#","#.#.#",".#.#."];
+const NMB=[0,1,2,3,4].map(i=>T[i]+'.'+E[i]+'.'+W[i]);
+function rose(c,t){const x=c.getContext('2d'),W_=c.width,H=c.height;x.clearRect(0,0,W_,H);if(!W_)return;
+const C=56,RW=48,cw=W_/C,ch=H/RW;x.font=`bold ${ch*.85}px "Courier New",monospace`;x.textAlign='center';x.textBaseline='middle';
+const P=(a,b)=>Math.min(1,Math.max(0,(t-a)/(b-a))),Ez=v=>1-Math.pow(1-v,3);
+const cx=28,cy=17,R=15,sd=P(0,2000),st=P(2000,6500),l1=P(4500,7500),l2=P(5300,8300),bl=Ez(P(6500,12500)),nm=P(12500,14500);
+const put=(c0,r0,s,col,a=1)=>{x.globalAlpha=a;x.fillStyle=col;x.fillText(s,(c0+.5)*cw,(r0+.5)*ch)};
+const G='#22c55e',D='#0f9d58';
+if(t<2600){put(cx,RW-2,'*','#fff',.5+.5*Math.sin(t/140));for(let i=0;i<sd*10;i++)put(cx+Math.round(Math.sin(i*2.3)*1.5),RW-3-(i>>1),'.:;'[i%3],G,.8)}
+const top=cy+11,g=(RW-2-top)*st;
+for(let y=RW-2;y>RW-2-g;y--){const o=Math.round(Math.sin(y*.22)*1.3);put(cx+o-1,y,'(',D);put(cx+o+1,y,')',D);put(cx+o,y,'|',G,.9)}
+[[RW-13,-1,l1],[RW-22,1,l2]].forEach(([y,sd2,f])=>{const n=Math.round(11*f);for(let k=0;k<n;k++){const ox=cx+sd2*(2+k),oy=y-Math.round(k*.35);put(ox,oy,'~',G);put(ox,oy+1,k<n-1?'%':'.',D);if(k>2&&k<n-2)put(ox,oy+2,'"',D,.8)}});
+if(bl>0)for(let r0=cy-R-2;r0<=cy+R;r0++)for(let c0=0;c0<C;c0++){
+const dx=c0-cx,dy=(r0-cy)*2,r=Math.hypot(dx,dy);if(r>R*bl*1.2+1)continue;
+const th=Math.atan2(dy,dx)+(1-bl)*4;let ed=R*bl*(1+.12*Math.cos(5*th));if(dy>0)ed*=.88;if(r>ed)continue;
+const k=r/(R*bl+.001),v=.5+.5*Math.sin(k*15-th*2.5);let s='.:+*%@&#'[Math.min(7,v*8|0)];if(k>.93)s='@';
+const col=`hsl(${350+(1-k)*8},85%,${28+v*34+(1-k)*14}%)`;let a=1;
+if(nm>0){const ox=c0-(cx-8),oy=Math.floor((r0-(cy-5))/2);if(ox>=0&&ox<17&&oy>=0&&oy<5&&NMB[oy][ox]==='#'){put(c0,r0,'#','#ffe0e7',nm);continue}a=1-.45*nm}
+put(c0,r0,s,col,a)}
+x.globalAlpha=1}
+function fit(c){const d=Math.min(devicePixelRatio||1,2);c.width=c.clientWidth*d;c.height=c.clientHeight*d}
+/* letter */
+const L=[...CONFIG.letter],N=L.length,rc=$('#rc'),env=$('#env'),pw=$('#pw'),tx=$('#tx');
+let t0=0,rdy=0,cur=0,opened=0,fullH=0,p=0,last=-1;
+function layout(){const eh=env.offsetHeight,avail=innerHeight*.8-eh*.45-14;let fs=16;tx.style.paddingBottom=eh*.58+'px';tx.style.fontSize=fs+'px';$('#h').textContent=CONFIG.letter;$('#v').textContent='';
+while(tx.offsetHeight>avail&&fs>11){fs-=.5;tx.style.fontSize=fs+'px'}fullH=tx.offsetHeight;last=-1}
+function render(){pw.style.height=(fullH*p)+'px';const n=Math.min(N,Math.floor(p*N*1.12));
+if(n!==last){last=n;$('#v').textContent=L.slice(0,n).join('');$('#h').textContent=L.slice(n).join('')}
+rc.style.opacity=1-.45*Math.min(1,p*4);PH.forEach((d,i)=>d.classList.toggle('in',p>.1+i*(.7/PH.length)));$('#h1').classList.toggle('on',opened&&p<.02)}
+function loop(){const m=document.documentElement.scrollHeight-innerHeight,tp=m>0?Math.min(1,scrollY/m):0;p=RM?tp:p+(tp-p)*.12;if(Math.abs(tp-p)<.0005)p=tp;render();requestAnimationFrame(loop)}
+/* floating photos */
+const PH=[],SL=[['left',3,9,-7],['right',3,17,6],['left',5,36,5],['right',4,44,-6],['left',2,60,-4],['right',5,62,7]];
+CONFIG.photos.forEach((p,i)=>{const s=SL[i%SL.length],d=document.createElement('div');d.className='ph';d.style.cssText=`${s[0]}:${s[1]}vw;top:${s[2]}%;--r:${s[3]}deg;--d:${-i*1.3}s`;d.innerHTML=`<div class="fm">${p.src?`<img src="${p.src}" alt="">`:'<div class="e">❤</div>'}${p.caption?`<small>${p.caption}</small>`:''}</div>`;document.body.appendChild(d);PH.push(d)});
+/* rose scene */
+function frame(n){cur=n-t0;rose(rc,cur);if(cur>14500&&!rdy)ready();if(cur<16000)requestAnimationFrame(frame)}
+function ready(){rdy=1;env.classList.add('show');$('#h1').classList.add('on')}
+function startRose(){fit(rc);layout();t0=performance.now();if(RM){rose(rc,99999);ready()}else requestAnimationFrame(frame)}
+addEventListener('resize',()=>{fitBg();fit(rc);layout();rose(rc,rdy?99999:cur);render()});
+env.onclick=()=>{if(!rdy||opened)return;opened=1;env.classList.add('open');$('#h1').classList.remove('on');
+setTimeout(()=>{$('#h1').textContent='เลื่อนลงเพื่ออ่านจดหมาย ↓';document.body.classList.remove('lock');$('#sc').style.display='block';loop()},900)};
+/* music */
+let aud,ac,gain,syn,vol=.6,on=0;
+$('#tt').textContent=CONFIG.music.title;if(CONFIG.music.src){aud=new Audio(CONFIG.music.src);aud.loop=true}
+function note(f){const n=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.25,n);g.gain.exponentialRampToValueAtTime(.001,n+1.8);o.connect(g);g.connect(gain);o.start(n);o.stop(n+1.9)}
+function play(){on=1;$('#pl').classList.add('play');$('#pp2').textContent='❚❚';if(aud){aud.volume=vol;aud.play().catch(()=>{})}else{ac=ac||new AudioContext();ac.resume();gain=gain||ac.createGain();gain.connect(ac.destination);gain.gain.value=vol;const ch=[[220,262,330],[175,220,262],[262,330,392],[196,247,294]];let i=0;syn=setInterval(()=>{note(ch[(i>>3)%4][[0,1,2,1][i%4]]*(i%8<4?1:2));i++},420)}}
+function pause(){on=0;$('#pl').classList.remove('play');$('#pp2').textContent='▶';aud?aud.pause():clearInterval(syn)}
+$('#pp2').onclick=()=>on?pause():play();
+$('#vol').oninput=e=>{vol=+e.target.value;if(aud)aud.volume=vol;if(gain)gain.gain.value=vol};
+/* open */
+$('#open').onclick=e=>{const r=e.target.getBoundingClientRect();hearts(r.left+r.width/2,r.top,14);$('#gate').classList.add('gone');
+setTimeout(()=>{$('#gate').style.display='none';$('#pl').classList.add('on');play();setTimeout(startRose,500)},1100)};
+addEventListener('load',()=>setTimeout(()=>$('#loader').classList.add('gone'),900));
+</script></body></html>
